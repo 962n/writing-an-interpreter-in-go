@@ -4,6 +4,7 @@ import "github.com/962n/writing-an-interpreter-in-go/token"
 
 type Node interface {
 	TokenLiteral() string
+	String() string
 }
 
 // Statement : 文
@@ -51,3 +52,23 @@ func (i *Identifier) expressionNode() {
 func (i *Identifier) TokenLiteral() string {
 	return i.Token.Literal
 }
+
+type ReturnStatement struct {
+	Token       token.Token // 'return'トークン
+	ReturnValue Expression
+}
+
+func (r *ReturnStatement) statementNode() {
+}
+
+func (r *ReturnStatement) TokenLiteral() string { return r.Token.Literal }
+
+type ExpressionStatement struct {
+	Token      token.Token
+	Expression Expression
+}
+
+func (es *ExpressionStatement) statementNode() {
+}
+
+func (es *ExpressionStatement) TokenLiteral() string { return es.Token.Literal }
