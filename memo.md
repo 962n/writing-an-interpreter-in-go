@@ -29,3 +29,8 @@ http://javascript.crockford.com/tdop/tdop.html
 http://journal.stuffwithstuff.com/2011/03/19/pratt-parsers-expression-parsing-made-easy/
 
 
+
+
+2.7 Pratt 構文解析の仕組み
+もう一回読む。p.85らへん。
+
