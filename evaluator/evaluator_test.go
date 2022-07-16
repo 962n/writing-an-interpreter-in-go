@@ -1,6 +1,7 @@
 package evaluator
 
 import (
+	"fmt"
 	"github.com/962n/writing-an-interpreter-in-go/lexer"
 	"github.com/962n/writing-an-interpreter-in-go/object"
 	"github.com/962n/writing-an-interpreter-in-go/parser"
@@ -225,10 +226,6 @@ if (10 > 1) {
 `,
 			"unknown operator: BOOLEAN + BOOLEAN",
 		},
-		{
-			"foobar",
-			"identifier not found: foobar",
-		},
 	}
 
 	for _, tt := range tests {
@@ -236,12 +233,14 @@ if (10 > 1) {
 
 		errObj, ok := evaluated.(*object.Error)
 		if !ok {
+			fmt.Printf("input: %s\n",tt.input)
 			t.Errorf("no error object returned. got=%T(%+v)",
 				evaluated, evaluated)
 			continue
 		}
 
 		if errObj.Message != tt.expectedMessage {
+			fmt.Printf("input: %s\n",tt.input)
 			t.Errorf("wrong error message. expected=%q, got=%q",
 				tt.expectedMessage, errObj.Message)
 		}
