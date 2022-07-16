@@ -36,7 +36,7 @@ func (b *Boolean) Inspect() string {
 }
 
 func (b *Boolean) Type() ObjectType {
-	return INTEGER_OBJ
+	return BOOLEAN_OBJ
 }
 
 
