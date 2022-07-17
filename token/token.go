@@ -15,6 +15,7 @@ const (
 
 	IDENT = "IDENT"
 	INT   = "INT"
+	STRING = "STRING"
 
 	// 演算子
 
